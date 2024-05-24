@@ -1,0 +1,62 @@
+{% extends "home.html" %}
+
+{% block title %}
+Home page 
+{% endblock title %}
+
+{% block content %} 
+    <div class="container col-4">
+        <h1 class="text-center py-2">This is Register Page</h1>
+
+        
+        {% comment %} {% if request.user.is_authenticated %}
+        <h2 class="text-danger text-center">You are Logged In.</h2>
+        <p class="text-danger text-center">Username : {{request.user.username}}</p>
+        {% else %}
+        <p class="text-danger text-center h3">User is not Logged In.</p>
+        {% endif %} {% endcomment %}
+
+        
+          {% if messages %}
+            {% for message in messages %}
+            <h3 class="text-danger">{{ message }}</h3>
+            {% endfor %}
+         {% endif %}
+
+
+        <form action="{% url 'register' %}" method="POST" class="was-validated">
+            {% csrf_token %}
+
+            <div class="mb-2">
+                <label for="text" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="text" name="first_name" placeholder="First Name">
+              </div>
+            <div class="mb-2">
+                <label for="text" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name">
+              </div>
+            <div class="mb-2">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+              </div>
+            <div class="mb-2">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
+              </div>
+            <div class="mb-2">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password1" name="password1" placeholder="Password">
+              </div>
+        
+              <div class="mb-2">
+                <label for="password2" class="form-label">Confirm_Password</label>
+                <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm_Password">
+              </div>
+        
+              <button  type="submit" class="btn btn-danger mt-3">Submit</button>
+            
+       
+        </form>
+    </div>
+{% endblock content %}
+    

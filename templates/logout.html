@@ -1,0 +1,23 @@
+{% extends "home.html" %}
+
+{% block title %}
+Login page 
+{% endblock title %}
+
+{% block content %} 
+
+<div class="container col-4">
+    <h1 class="text-center py-2">This is Logout Page</h1>
+
+
+    {% if messages %}
+    {% for message in messages %}
+    <h3 class="text-danger text-center">{{ message }}</h3>
+    {% endfor %}
+    {% endif %}
+
+
+   
+</div>
+{% endblock content %}
+    
